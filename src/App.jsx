@@ -1,7 +1,8 @@
+import React from 'react';
 import './App.css';
 import { Setup } from './Setup';
 
-const App=()=> {
+const App = () => {
   return (
     <div>
       <Setup />
