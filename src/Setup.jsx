@@ -62,7 +62,7 @@ export const Setup = () => {
 
   return (
 
-    <div>
+    <div id="drum-machine">
       <Bank currentBank={currentBank} handleEvent={handleEvent} audioRef={audioRef} />
       <Tools checkedPower={checkedPower} setPower={setPower} display={display} volume={volume} handleChangeVolume={handleChangeVolume} checkedBank={checkedBank} setBank={setBank} />
     </div>

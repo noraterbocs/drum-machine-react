@@ -4,7 +4,7 @@ import { Button } from "./Button";
 export const Bank = ({ currentBank, handleEvent, audioRef }) => {
   return (
 
-    <div className="col drum-pad">
+    <div>
       {currentBank.map((bank) => {
         return (
           <Button key={bank.id} bank={bank} handleEvent={handleEvent} audioRef={audioRef} />
