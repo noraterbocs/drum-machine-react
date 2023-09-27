@@ -6,37 +6,11 @@
   background-color: black;
 }
 
-.container {
-  padding-right: 0;
-}
-
-.card {
-  max-width: 600px;
-  min-width: 600px;
-  min-height: 300px;
-  padding-bottom: 20px;
-  padding-top: 20px;
-  background-color: #bdcad9;
-  background-image: linear-gradient(315deg, #bdcad9 0%, #e1dada 74%);
-
-  border-radius: 6px;
-  box-shadow: 0 0 0 1px #4a4949 inset, 0 0 0 2px rgba(192, 192, 192, 0.15) inset,
-    0 4px 0 0 #4a4949, 0 4px 0 1px rgba(0, 0, 0, 0.4),
-    0 4px 4px 1px rgba(0, 0, 0, 0.5);
-  font-weight: bold;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-  -webkit-transition: all 0.2s linear;
-}
-
 .button {
-  background-color: #b3bec4;
   background-image: linear-gradient(130deg,
       #908d9e 0%,
       #b3bec4 85%,
       #d3dedd 100%);
-}
-
-.btn-big {
   background-color: #bbc2cc;
   border-radius: 6px;
   box-shadow: 0 0 0 1px #4a4949 inset, 0 0 0 2px rgba(192, 192, 192, 0.15) inset,
@@ -44,37 +18,31 @@
     0 4px 4px 1px rgba(0, 0, 0, 0.5);
   font-weight: bold;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-  -webkit-transition: all 0.2s linear;
   padding: 1rem 1rem;
   width: 80px;
   height: 70px;
 }
 
-.btn-big:hover {
+.button:hover {
   color: #595959;
   background: #d5d7db;
   box-shadow: 0 0 10px #d5d7db, 0 0 40px #d5d7db, 0 0 80px #d5d7db;
 }
 
-.btn-big:active {
-  background: #d5d7db;
-  box-shadow: 0 0 10px #d5d7db, 0 0 40px #d5d7db, 0 0 80px #d5d7db;
-}
-
 .display {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
   background-color: #b3bec4;
   background-image: linear-gradient(130deg,
       #908d9e 0%,
       #b3bec4 85%,
       #d3dedd 100%);
-  height: 100px;
+  padding: 20px;
   box-shadow: 0 0 0 1px #4a4949 inset, 0 0 0 2px rgba(192, 192, 192, 0.15) inset,
     0 4px 0 0 #4a4949, 0 4px 0 1px rgba(0, 0, 0, 0.4),
     0 4px 4px 1px rgba(0, 0, 0, 0.5);
   font-weight: bold;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-  -webkit-transition: all 0.2s linear;
 }
 
 p {
@@ -83,9 +51,27 @@ p {
   align-items: center;
 }
 
-.drum-pad {
+.drum-display {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 10px;
+}
+
+.tools {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.display-container {
+  align-self: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .display {
+    flex-direction: row;
+  }
 }
