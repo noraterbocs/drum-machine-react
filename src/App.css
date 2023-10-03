@@ -68,6 +68,11 @@ p {
 
 .display-container {
   align-self: center;
+  width: 160px
+}
+
+.volume-wrapper {
+  width: 100%;
 }
 
 @media only screen and (min-width: 600px) {
