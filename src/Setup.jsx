@@ -8,7 +8,7 @@ export const Setup = () => {
   const [currentBank, setCurrentBank] = useState(data.bankOne);
   const [checkedPower, setCheckedPower] = useState(true);
   const [display, setDisplay] = useState("Heater Kit");
-  const [volume, setVolume] = useState(30);
+  const [volume, setVolume] = useState(10);
   const audioRef = useRef({});
   const setBank = () => {
     setCheckedBank(!checkedBank);
@@ -31,7 +31,7 @@ export const Setup = () => {
     }
   };
   const handleChangeVolume = (e) => {
-    setDisplay(`Volume: ${e.target.value}`);
+    setDisplay(`Volume: ${e.target.value}%`);
     setVolume(e.target.value);
   };
 
@@ -40,25 +40,40 @@ export const Setup = () => {
       console.log("power turned off");
       return;
     } else {
+      console.log(e.target.id)
       const soundBank = currentBank.find(
         (bank) =>
-          e.target.childNodes[0].id === bank.keyTrigger ||
-          e.code === `Key${bank.keyTrigger}`
+          e.target.childNodes[0].id === bank.keyTrigger
+          ||
+          e.key === bank.keyTrigger.toLowerCase()
       );
       console.log(soundBank);
-      setDisplay(soundBank.id);
-      const sound = audioRef.current[soundBank.keyTrigger];
-      console.log(sound)
-      if (sound) {
+      if (soundBank) {
+        setDisplay(soundBank.id);
+        const sound = audioRef.current[soundBank.keyTrigger];
+        sound.volume = volume / 100
+        console.log(sound)
         sound.play();
+      } else {
+        alert('You clicked the wrong key!')
       }
     }
+    e.target.blur();
   };
   useEffect(() => {
     if (audioRef) {
-      audioRef.current.volume = volume / 100;
+      console.log(audioRef.current)
+      console.log(audioRef)
+      audioRef.volume = volume
     }
-  }, [volume, audioRef]);
+  }, [volume]);
+
+  useEffect(() => {
+    document.addEventListener('keyup', handleEvent);
+    return () => {
+      document.removeEventListener('keyup', handleEvent);
+    };
+  }, []);
 
   return (
 

@@ -5,8 +5,8 @@ export const Button = ({ bank, handleEvent, audioRef }) => {
         <button
             className="button btn-big drum-pad"
             id={bank.id}
-            onKeyDown={handleEvent}
-            onClick={handleEvent}
+            onKeyUp={handleEvent}
+            onMouseUp={handleEvent}
         >
             <audio
                 className="clip"
